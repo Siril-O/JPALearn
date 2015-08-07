@@ -9,82 +9,98 @@ import javax.persistence.Id;
 
 @Entity
 public class Pizza {
-	
+
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
-	private double price;
-	@Enumerated (EnumType.STRING)
+	private Double price;
+	@Enumerated(EnumType.STRING)
 	private PizzaType type;
-	
-	
-	
+
 	public Pizza() {
 		super();
 	}
-	public Pizza(int id, String name, double price, PizzaType type) {
+
+	public Pizza(String name, Double price, PizzaType type) {
+		super();
+		this.name = name;
+		this.price = price;
+		this.type = type;
+	}
+
+	public Pizza(Long id, String name, Double price, PizzaType type) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.price = price;
 		this.type = type;
 	}
+
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
+
 	/**
-	 * @param id the id to set
+	 * @param id
+	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
+
 	/**
 	 * @return the name
 	 */
 	public String getName() {
 		return name;
 	}
+
 	/**
-	 * @param name the name to set
+	 * @param name
+	 *            the name to set
 	 */
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	/**
 	 * @return the price
 	 */
-	public double getPrice() {
+	public Double getPrice() {
 		return price;
 	}
+
 	/**
-	 * @param price the price to set
+	 * @param price
+	 *            the price to set
 	 */
-	public void setPrice(double price) {
+	public void setPrice(Double price) {
 		this.price = price;
 	}
+
 	/**
 	 * @return the type
 	 */
 	public PizzaType getType() {
 		return type;
 	}
+
 	/**
-	 * @param type the type to set
+	 * @param type
+	 *            the type to set
 	 */
 	public void setType(PizzaType type) {
 		this.type = type;
 	}
-	/* (non-Javadoc)
-	 * @see java.lang.Object#toString()
-	 */
+
 	@Override
 	public String toString() {
 		return "Pizza [id=" + id + ", name=" + name + ", price=" + price
 				+ ", type=" + type + "]";
 	}
-	
+
 }

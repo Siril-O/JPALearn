@@ -1,22 +1,33 @@
 package ua.epam.rd.dev.edu.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
-
+@Entity
 public class Customer {
 
 	@Id
-	@GeneratedValue (strategy = GenerationType.IDENTITY)
-	private int id;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	private String name;
+	@OneToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "accumulativecard")
+	private AccumulativeCard accumulativeCard;
+	@OneToOne(cascade = {CascadeType.ALL} )
+	@JoinColumn(name = "address")
+	private Address address;
 
-	public Customer(int id, String name) {
+	public Customer(String name, AccumulativeCard accumulativeCard,
+			Address address) {
 		super();
-		this.id = id;
 		this.name = name;
+		this.accumulativeCard = accumulativeCard;
+		this.address = address;
 	}
 
 	public Customer() {
@@ -26,7 +37,7 @@ public class Customer {
 	/**
 	 * @return the id
 	 */
-	public int getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -34,7 +45,7 @@ public class Customer {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(int id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -53,14 +64,40 @@ public class Customer {
 		this.name = name;
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see java.lang.Object#toString()
+	/**
+	 * @return the accumulativeCard
 	 */
+	public AccumulativeCard getAccumulativeCard() {
+		return accumulativeCard;
+	}
+
+	/**
+	 * @param accumulativeCard
+	 *            the accumulativeCard to set
+	 */
+	public void setAccumulativeCard(AccumulativeCard accumulativeCard) {
+		this.accumulativeCard = accumulativeCard;
+	}
+
+	/**
+	 * @return the address
+	 */
+	public Address getAddress() {
+		return address;
+	}
+
+	/**
+	 * @param address
+	 *            the address to set
+	 */
+	public void setAddress(Address address) {
+		this.address = address;
+	}
+
 	@Override
 	public String toString() {
-		return "Customer [id=" + id + ", name=" + name + "]";
+		return "Customer [id=" + id + ", name=" + name + ", accumulativeCard="
+				+ accumulativeCard + ", address=" + address + "]";
 	}
 
 }
