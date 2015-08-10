@@ -32,13 +32,25 @@ public class JPAPizzaService implements PizzaService {
 	}
 
 	@Override
-	public Pizza findById(long id) {
+	public Pizza findById(Long id) {
 		return pizzaRepository.findById(id);
 	}
 
 	@Override
 	public List<Pizza> getAllPizzas() {
 		return pizzaRepository.getAllPizzas();
+	}
+
+	@Override
+	@Transactional
+	public void remove(Long id) {
+		pizzaRepository.remove(id);
+	}
+
+	@Override
+	@Transactional
+	public Long update(Pizza pizza) {
+		return pizzaRepository.update(pizza);
 	}
 
 }

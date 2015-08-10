@@ -15,10 +15,13 @@ ua\epam\rd\dev\edu\repository\AddressRepository.class
 ua\epam\rd\dev\edu\domain\AccumulativeCard.class
 ua\epam\rd\dev\edu\domain\Address.class
 ua\epam\rd\dev\edu\service\CustomerService.class
+ua\epam\rd\dev\edu\web\PizzaController.class
 ua\epam\rd\dev\edu\service\AddressService.class
+ua\epam\rd\dev\edu\web\GlobalErrorHandler.class
 ua\epam\rd\dev\edu\repository\OrderRepository.class
 ua\epam\rd\dev\edu\repository\JPACustomerRepository.class
 ua\epam\rd\dev\edu\repository\PizzaRepository.class
 ua\epam\rd\dev\edu\repository\JPAAddressRepository.class
 ua\epam\rd\dev\edu\service\JPACustomerService.class
+ua\epam\rd\dev\edu\web\NotFoundPizzaException.class
 ua\epam\rd\dev\edu\AppJPARunner.class

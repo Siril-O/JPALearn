@@ -8,7 +8,12 @@ public interface PizzaService {
 
 	public void save(Pizza pizza);
 
-	public Pizza findById(long id);
+	public Pizza findById(Long id);
 	
 	public List<Pizza> getAllPizzas();
+
+	public void remove(Long id);
+	
+	public Long update(Pizza pizza);
+
 }

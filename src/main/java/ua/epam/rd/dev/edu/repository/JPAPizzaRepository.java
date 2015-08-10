@@ -30,7 +30,7 @@ public class JPAPizzaRepository implements PizzaRepository {
 	}
 
 	@Override
-	public Pizza findById(long id) {
+	public Pizza findById(Long id) {
 		return em.find(Pizza.class, id);
 	}
 
@@ -40,5 +40,18 @@ public class JPAPizzaRepository implements PizzaRepository {
 		TypedQuery<Pizza> query = em.createQuery("SELECT p FROM Pizza p",
 				Pizza.class);
 		return query.getResultList();
+	}
+
+	@Override
+	public void remove(Long id) {
+		Pizza pizza = em.find(Pizza.class, id);
+		if (pizza != null) {
+			em.remove(pizza);
+		}
+	}
+
+	@Override
+	public Long update(Pizza pizza) {
+		return em.merge(pizza).getId();
 	}
 }
