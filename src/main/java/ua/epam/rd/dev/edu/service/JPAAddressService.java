@@ -3,12 +3,13 @@ package ua.epam.rd.dev.edu.service;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
+
+import org.springframework.stereotype.Service;
 
 import ua.epam.rd.dev.edu.domain.Address;
 import ua.epam.rd.dev.edu.repository.AddressRepository;
 
-@Named
+@Service
 public class JPAAddressService implements AddressService {
 
 	@Inject

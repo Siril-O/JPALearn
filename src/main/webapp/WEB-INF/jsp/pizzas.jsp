@@ -9,9 +9,8 @@
 </head>
 <body>
 <h1>Pizzas List</h1>
-	<c:forEach var="pizza" items="pizzas">
-		<c:out value="${pizza}" />
-		<p>
+	<c:forEach var="pizza" items="#{pizzasList}">
+		<c:out value="${pizza}" /><br/>
 	</c:forEach>
 </body>
 </html>

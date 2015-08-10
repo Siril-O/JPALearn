@@ -21,8 +21,11 @@ import ua.epam.rd.dev.edu.service.PizzaService;
 
 public class AppJPARunner {
 	public static void main(String[] args) {
+		ConfigurableApplicationContext repositoryContext = new ClassPathXmlApplicationContext(
+				"repositoryContext.xml");
+
 		ConfigurableApplicationContext context = new ClassPathXmlApplicationContext(
-				"appContext.xml");
+				new String[] { "appContext.xml" }, repositoryContext);
 
 		PizzaService pizzaService = context.getBean(PizzaService.class);
 		CustomerService customerService = context
@@ -30,7 +33,7 @@ public class AppJPARunner {
 		AddressService addressService = context.getBean(AddressService.class);
 		
 		OrderService orderService = context.getBean(OrderService.class);
-		
+		/*
 		// Pizza pizza = new Pizza("Oliva", 176.5, PizzaType.Vegetarian);
 		// pizzaService.save(pizza);
 		// Customer customer = new Customer("Kiril", new AccumulativeCard(), new
@@ -53,7 +56,7 @@ public class AppJPARunner {
 			System.out.println(o.getPizzas());
 
 		}
-
+*/
 
 		System.out.println(pizzaService.getAllPizzas());
 		System.out.println(customerService.getAllCustomers());

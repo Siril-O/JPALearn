@@ -3,14 +3,14 @@ package ua.epam.rd.dev.edu.service;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import ua.epam.rd.dev.edu.domain.Pizza;
 import ua.epam.rd.dev.edu.repository.PizzaRepository;
 
-@Named
+@Service
 public class JPAPizzaService implements PizzaService {
 
 	@Inject

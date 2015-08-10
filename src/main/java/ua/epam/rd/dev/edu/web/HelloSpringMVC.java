@@ -1,6 +1,7 @@
 package ua.epam.rd.dev.edu.web;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import ua.epam.rd.dev.edu.domain.Pizza;
 import ua.epam.rd.dev.edu.service.PizzaService;
 
 @Controller("helloController")
@@ -39,7 +41,9 @@ public class HelloSpringMVC {
 
 	@RequestMapping(value="/pizzas", method=RequestMethod.GET)
 	public String viewPizzas(Model model){
-		model.addAttribute("pizzas", pizzaService.getAllPizzas());
+		List<Pizza> pizzas = pizzaService.getAllPizzas();
+		System.out.println(pizzas);
+		model.addAttribute("pizzasList", pizzas);
 		return "pizzas";
 	}
 	

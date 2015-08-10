@@ -17,7 +17,16 @@
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
-	
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>
+            classpath:/repositoryContext.xml
+            classpath:/appContext.xml            
+        </param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
 
 	<servlet-mapping>
 		<servlet-name>dispacherServlet</servlet-name>

@@ -3,13 +3,14 @@ package ua.epam.rd.dev.edu.service;
 import java.util.List;
 
 import javax.inject.Inject;
-import javax.inject.Named;
 import javax.transaction.Transactional;
+
+import org.springframework.stereotype.Service;
 
 import ua.epam.rd.dev.edu.domain.Customer;
 import ua.epam.rd.dev.edu.repository.CustomerRepository;
 
-@Named
+@Service
 public class JPACustomerService implements CustomerService {
 
 	@Inject
