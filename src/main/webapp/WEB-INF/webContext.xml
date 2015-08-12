@@ -13,16 +13,18 @@
 	<context:component-scan base-package="ua.epam.rd.dev.edu.web" />
 	<mvc:annotation-driven />
 
-	<bean id="simpleMappingExceptionResolver"
+<!-- 	<bean id="simpleMappingExceptionResolver"
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-<!-- 		<property name="exceptionMappings">
+		
+		
+		<property name="exceptionMappings">
 			<map>
 				<entry key="SQLException" value="databaseError"></entry>
 			</map>
-		</property> -->
+		</property>
 		<property name="defaultErrorView" value="error"/>
 		<property name="exceptionAttribute" value="ex"/>
-	</bean> 
+	</bean> --> 
 
 
 	<!-- <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping"> 

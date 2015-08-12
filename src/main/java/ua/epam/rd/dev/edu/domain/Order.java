@@ -7,6 +7,8 @@ import javax.persistence.CollectionTable;
 import javax.persistence.Column;
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -32,6 +34,9 @@ public class Order {
 	@JoinColumn(name = "customer_id")
 	private Customer customer;
 
+	@Enumerated(EnumType.STRING)
+	private Status status;
+
 	@ElementCollection
 	@CollectionTable(name = "order_item", joinColumns = { @JoinColumn(name = "order_id") })
 	@MapKeyJoinColumn(name = "pizza_id")
@@ -42,9 +47,19 @@ public class Order {
 		super();
 	}
 
-	public Order(Customer customer, Map<Pizza, Integer> pizzas) {
+	public Order(Long id, Customer customer, Status status,
+			Map<Pizza, Integer> pizzas) {
+		super();
+		this.id = id;
+		this.customer = customer;
+		this.status = status;
+		this.pizzas = pizzas;
+	}
+
+	public Order(Customer customer, Status status, Map<Pizza, Integer> pizzas) {
 		super();
 		this.customer = customer;
+		this.status = status;
 		this.pizzas = pizzas;
 	}
 
@@ -94,6 +109,21 @@ public class Order {
 		this.pizzas = pizzas;
 	}
 
+	/**
+	 * @return the status
+	 */
+	public Status getStatus() {
+		return status;
+	}
+
+	/**
+	 * @param status
+	 *            the status to set
+	 */
+	public void setStatus(Status status) {
+		this.status = status;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -101,7 +131,8 @@ public class Order {
 	 */
 	@Override
 	public String toString() {
-		return "Order [id=" + id + ", customer=" + customer + ", pizzas=" + "]";
+		return "Order [id=" + id + ", customer=" + customer + ", status="
+				+ status + "]";
 	}
 
 }

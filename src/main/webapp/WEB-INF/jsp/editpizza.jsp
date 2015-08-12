@@ -6,18 +6,24 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet"
+	href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
 <title>Insert title here</title>
 </head>
 <body>
-<h1>Edit Pizza</h1>
-	<form:form action="../pizza/changepizza"
-		method="get">
-		<input type="hidden" name="id" value="${pizzaToEdit.id}"/>
-		Name: <input type="text" name="name" value="${pizzaToEdit.name}"/>
-		<br /> Price: <input type="text" name="price" value="${pizzaToEdit.price}"/>
-		<br /> Type :<input type="text" name="type" value="${pizzaToEdit.type}"/>
-		<br />
-		<input type="submit" value="Change Pizza" />
-	</form:form>
+	<div class="container">
+		<h1>Edit Pizza</h1>
+		<form:form action="../pizza/changepizza" method="get">
+			<input type="hidden" name="id" value="${pizzaToEdit.id}" />
+		Name: <input type="text" name="name" value="${pizzaToEdit.name}" />
+			<br /> Price: <input type="text" name="price"
+				value="${pizzaToEdit.price}" />
+			<br /> Type :<input type="text" name="type"
+				value="${pizzaToEdit.type}" />
+			<br />
+			<input type="submit" value="Change Pizza" />
+		</form:form>
+	</div>
 </body>
 </html>

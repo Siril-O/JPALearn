@@ -1,5 +1,6 @@
 package ua.epam.rd.dev.edu.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +16,9 @@ public class AccumulativeCard {
 
 	@OneToOne(mappedBy = "accumulativeCard")
 	private Customer customer;
+
+	@Column(name="summ")
+	private Double totalSumm;
 
 	// private Address address;
 
@@ -40,6 +44,21 @@ public class AccumulativeCard {
 	@Override
 	public String toString() {
 		return "AccumulativeCard [id=" + id + "]";
+	}
+
+	/**
+	 * @return the totalSumm
+	 */
+	public Double getTotalSumm() {
+		return totalSumm;
+	}
+
+	/**
+	 * @param totalSumm
+	 *            the totalSumm to set
+	 */
+	public void setTotalSumm(Double totalSumm) {
+		this.totalSumm = totalSumm;
 	}
 
 }

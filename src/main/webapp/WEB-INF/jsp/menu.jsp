@@ -12,13 +12,14 @@
 <body>
 	<div class="container">
 		<h1>Pizzas List</h1>
+
 		<table class="table table-hover">
 			<tr>
 				<td>Id</td>
 				<td>Name</td>
 				<td>Price</td>
 				<td>Type</td>
-				<td>Edit</td>
+				<td>Quantity</td>
 			</tr>
 			<c:forEach var="pizza" items="#{pizzasList}">
 				<tr>
@@ -26,18 +27,15 @@
 					<td><c:out value="${pizza.name}" /></td>
 					<td><c:out value="${pizza.price}" /></td>
 					<td><c:out value="${pizza.type}" /></td>
-					<td>
-						<form action="../pizza/editpizza">
-							<input type="submit" value="Edit" class="btn btn-primary" /> <input
+					<td><form method="post" action="../pizza/addToCart">
+							<input type="text" id="quantity" name="quantity" />
+							<input type="submit" value="Add Pizza to Cart" /> <input
 								type="hidden" name="id" value="${pizza.id}">
-						</form>
-					</td>
-					<td><a class="btn btn-primary"
-						href="../pizza/removepizza?id=${pizza.id}">Remove</a></td>
+						</form></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a class="btn btn-primary" href="../pizza/addpizza">Add Pizza</a>
+
 	</div>
 </body>
 </html>
