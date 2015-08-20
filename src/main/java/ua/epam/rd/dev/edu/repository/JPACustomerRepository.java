@@ -23,14 +23,22 @@ public class JPACustomerRepository implements CustomerRepository {
 
 	@Override
 	public List<Customer> getAllCustomers() {
-		TypedQuery<Customer> query = em.createQuery("SELECT c FROM Customer c",
-				Customer.class);
+		TypedQuery<Customer> query = em.createNamedQuery(
+				"Customer.getAllCustomers", Customer.class);
 		return query.getResultList();
 	}
 
 	@Override
 	public Customer findByid(long id) {
 		return em.find(Customer.class, id);
+	}
+
+	@Override
+	public Customer getByEmailAndPassword(String email, String password) {
+		TypedQuery<Customer> query = em.createNamedQuery(
+				"Customer.getByEmailAndPassword", Customer.class);
+		return query.setParameter("email", email)
+				.setParameter("password", password).getSingleResult();
 	}
 
 }

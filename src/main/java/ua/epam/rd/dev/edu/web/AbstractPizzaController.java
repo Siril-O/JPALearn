@@ -9,13 +9,14 @@ import org.springframework.web.bind.annotation.InitBinder;
 import ua.epam.rd.dev.edu.domain.Pizza;
 import ua.epam.rd.dev.edu.service.PizzaService;
 
+
 public abstract class AbstractPizzaController {
 
 	@Autowired
 	protected PizzaService pizzaService;
 	
 	
-	private Pizza getPizzaById(Long id) {
+	protected Pizza getPizzaById(Long id) {
 		Pizza pizza = pizzaService.findById(id);
 		if (id <= 0)
 			throw new IllegalArgumentException("ID<0");
@@ -25,7 +26,7 @@ public abstract class AbstractPizzaController {
 	}
 	
 	@InitBinder
-	private void pizzaBinder(WebDataBinder binder) {
+	protected void pizzaBinder(WebDataBinder binder) {
 		binder.registerCustomEditor(Pizza.class, new PropertyEditorSupport() {
 
 			@Override

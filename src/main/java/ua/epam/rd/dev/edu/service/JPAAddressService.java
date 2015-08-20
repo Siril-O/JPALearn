@@ -2,8 +2,7 @@ package ua.epam.rd.dev.edu.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ua.epam.rd.dev.edu.domain.Address;
@@ -12,7 +11,7 @@ import ua.epam.rd.dev.edu.repository.AddressRepository;
 @Service
 public class JPAAddressService implements AddressService {
 
-	@Inject
+	@Autowired
 	AddressRepository addresRepository;
 
 	@Override

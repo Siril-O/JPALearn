@@ -18,6 +18,8 @@
 
 		<!-- Spring -->
 		<spring.framework.version>4.1.7.RELEASE</spring.framework.version>
+		<!-- Spring Security -->
+		<org.springsecurityframework.version>4.0.2.RELEASE</org.springsecurityframework.version>
 
 		<!-- Hibernate -->
 		<hibernate.framework.version>4.3.10.Final</hibernate.framework.version>
@@ -40,6 +42,7 @@
 		</dependency>
 
 
+
 		<!-- Test Artifacts -->
 		<dependency>
 			<groupId>junit</groupId>
@@ -50,11 +53,11 @@
 
 		<!-- Spring -->
 		<dependency>
-		<groupId>com.fasterxml.jackson.core</groupId>
-		<artifactId>jackson-databind</artifactId>
-		<version>2.6.0</version>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>2.6.0</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
@@ -80,6 +83,26 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
 			<version>${spring.framework.version}</version>
+		</dependency>
+
+		<!-- Spring Security -->
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${org.springsecurityframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${org.springsecurityframework.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${org.springsecurityframework.version}</version>
 		</dependency>
 
 		<!-- Hibernate -->

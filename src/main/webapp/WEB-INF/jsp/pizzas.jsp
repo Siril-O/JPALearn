@@ -12,5 +12,7 @@
 	<c:forEach var="pizza" items="#{pizzasList}">
 		<c:out value="${pizza}" /><br/>
 	</c:forEach>
+	
+
 </body>
 </html>

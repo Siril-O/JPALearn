@@ -12,12 +12,12 @@ public class AccumulativeCard {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 
 	@OneToOne(mappedBy = "accumulativeCard")
 	private Customer customer;
 
-	@Column(name="summ")
+	@Column(name = "summ")
 	private Double totalSumm;
 
 	// private Address address;
@@ -26,10 +26,21 @@ public class AccumulativeCard {
 		super();
 	}
 
+	public AccumulativeCard(Double totalSumm) {
+		super();
+		this.totalSumm = totalSumm;
+	}
+
+	public AccumulativeCard(Customer customer, Double totalSumm) {
+		super();
+		this.customer = customer;
+		this.totalSumm = totalSumm;
+	}
+
 	/**
 	 * @return the id
 	 */
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
@@ -37,7 +48,7 @@ public class AccumulativeCard {
 	 * @param id
 	 *            the id to set
 	 */
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -60,5 +71,20 @@ public class AccumulativeCard {
 	public void setTotalSumm(Double totalSumm) {
 		this.totalSumm = totalSumm;
 	}
+
+/*	*//**
+	 * @return the customer
+	 *//*
+	public Customer getCustomer() {
+		return customer;
+	}
+
+	*//**
+	 * @param customer
+	 *            the customer to set
+	 *//*
+	public void setCustomer(Customer customer) {
+		this.customer = customer;
+	}*/
 
 }

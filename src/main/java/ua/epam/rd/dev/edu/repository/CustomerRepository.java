@@ -11,4 +11,6 @@ public interface CustomerRepository {
 	public Customer findByid(long id);
 	
 	public List<Customer> getAllCustomers();
+	
+	public Customer getByEmailAndPassword(String email, String password);
 }

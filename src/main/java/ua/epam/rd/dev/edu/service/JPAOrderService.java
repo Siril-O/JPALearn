@@ -2,8 +2,7 @@ package ua.epam.rd.dev.edu.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
-
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -13,7 +12,7 @@ import ua.epam.rd.dev.edu.repository.OrderRepository;
 @Service
 public class JPAOrderService implements OrderService {
 
-	@Inject
+	@Autowired
 	OrderRepository orderRepository;
 
 	@Override
@@ -25,6 +24,11 @@ public class JPAOrderService implements OrderService {
 	@Override
 	public List<Order> findAllOrders() {
 		return orderRepository.findAllOrders();
+	}
+
+	@Override
+	public Order findById(Long id) {
+		return orderRepository.findById(id);
 	}
 
 }

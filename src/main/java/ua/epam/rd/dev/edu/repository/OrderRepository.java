@@ -9,4 +9,6 @@ public interface OrderRepository {
 	public Long save(Order order);
 	
 	public List<Order> findAllOrders();
+	
+	public Order findById(Long id);
 }

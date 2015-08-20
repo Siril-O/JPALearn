@@ -12,6 +12,14 @@
 <body>
 	<div class="container">
 		<h1>Pizzas List</h1>
+		<c:url var="logoutUrl" value="/logout" />
+		<form action="${logoutUrl}" method="post">
+		
+		${userName} ${roles}
+		
+			<input class="btn btn-primary" type="submit" value="LogOut" /> <input
+				type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+		</form>
 		<table class="table table-hover">
 			<tr>
 				<td>Id</td>
@@ -19,8 +27,9 @@
 				<td>Price</td>
 				<td>Type</td>
 				<td>Edit</td>
+				<td>Remove</td>
 			</tr>
-			<c:forEach var="pizza" items="#{pizzasList}">
+			<c:forEach var="pizza" items="${pizzasList}">
 				<tr>
 					<td><c:out value="${pizza.id}" /></td>
 					<td><c:out value="${pizza.name}" /></td>
@@ -29,15 +38,18 @@
 					<td>
 						<form action="../pizza/editpizza">
 							<input type="submit" value="Edit" class="btn btn-primary" /> <input
-								type="hidden" name="id" value="${pizza.id}">
+								type="hidden" name="pizzaId" value="${pizza.id}">
 						</form>
 					</td>
 					<td><a class="btn btn-primary"
-						href="../pizza/removepizza?id=${pizza.id}">Remove</a></td>
+						href="../pizza/removepizza?pizzaId=${pizza.id}">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<a class="btn btn-primary" href="../pizza/addpizza">Add Pizza</a>
+
 	</div>
+
+
 </body>
 </html>

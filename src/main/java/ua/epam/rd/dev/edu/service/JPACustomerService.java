@@ -2,9 +2,9 @@ package ua.epam.rd.dev.edu.service;
 
 import java.util.List;
 
-import javax.inject.Inject;
 import javax.transaction.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import ua.epam.rd.dev.edu.domain.Customer;
@@ -13,7 +13,7 @@ import ua.epam.rd.dev.edu.repository.CustomerRepository;
 @Service
 public class JPACustomerService implements CustomerService {
 
-	@Inject
+	@Autowired
 	CustomerRepository customerRepository;
 
 	@Override
@@ -28,8 +28,13 @@ public class JPACustomerService implements CustomerService {
 	}
 
 	@Override
-	public Customer findByid(long id) {
+	public Customer findByid(Long id) {
 		return customerRepository.findByid(id);
+	}
+
+	@Override
+	public Customer getByEmailAndPassword(String email, String password) {
+		return customerRepository.getByEmailAndPassword(email, password);
 	}
 
 }

@@ -11,5 +11,7 @@ public interface CustomerService {
 	
 	public List<Customer> getAllCustomers();
 	
-	public Customer findByid(long id);
+	public Customer findByid(Long id);
+	
+	public Customer getByEmailAndPassword(String email, String password);
 }

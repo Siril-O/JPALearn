@@ -2,16 +2,16 @@ package ua.epam.rd.dev.edu.repository.template;
 
 import static org.junit.Assert.assertNotNull;
 
-import javax.inject.Inject;
-
 import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
 import ua.epam.rd.dev.edu.domain.Pizza;
 import ua.epam.rd.dev.edu.domain.PizzaType;
 import ua.epam.rd.dev.edu.repository.PizzaRepository;
 
 public class JPAPizzaRepositoryIT extends RepositoryTestsTemplate {
 
-	@Inject
+	@Autowired
 	private PizzaRepository pizzaRepository;
 
 	@Test

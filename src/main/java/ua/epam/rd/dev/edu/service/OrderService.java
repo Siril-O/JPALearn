@@ -10,4 +10,6 @@ public interface OrderService {
 	
 	public List<Order> findAllOrders();
 	
+	
+	public Order findById(Long id);
 }

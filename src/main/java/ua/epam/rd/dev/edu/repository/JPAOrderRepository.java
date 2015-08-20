@@ -30,4 +30,9 @@ public class JPAOrderRepository implements OrderRepository {
 		return query.getResultList();
 	}
 
+	@Override
+	public Order findById(Long id) {
+		return em.find(Order.class, id);
+	}
+
 }
