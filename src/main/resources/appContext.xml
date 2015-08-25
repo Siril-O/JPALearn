@@ -8,7 +8,7 @@
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <context:component-scan base-package="ua.epam.rd.dev.edu.service" />
-    <context:component-scan base-package="ua.epam.rd.dev.domain.infrastructure" />
+    <context:component-scan base-package="ua.epam.rd.dev.edu.infrastructure" />
 
     <tx:annotation-driven  transaction-manager="transactionManager" />
      

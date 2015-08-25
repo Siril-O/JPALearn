@@ -12,12 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
-import ua.epam.rd.dev.domain.infrastructure.TotalOrderCostCalculator;
 import ua.epam.rd.dev.edu.domain.AccumulativeCard;
 import ua.epam.rd.dev.edu.domain.Customer;
 import ua.epam.rd.dev.edu.domain.Order;
 import ua.epam.rd.dev.edu.domain.Pizza;
 import ua.epam.rd.dev.edu.domain.Status;
+import ua.epam.rd.dev.edu.infrastructure.TotalOrderCostCalculator;
 import ua.epam.rd.dev.edu.service.AccumulativeCardService;
 
 @RequestMapping(value = "cart")
@@ -75,7 +75,7 @@ public class CartController extends AbstractPizzaController {
 			@ModelAttribute("pizzaMap") Map<Pizza, Integer> pizzaMap) {
 		Customer customer = addCustomerToModel(model);
 		AccumulativeCard card = customer.getAccumulativeCard();
-		double totalSumm = totalOrderCostCalc.calculateToatalOrderPriceWithoutCardDiscount(pizzaMap);
+		double totalSumm = totalOrderCostCalc.calculateTotalOrderPriceWithoutCardDiscount(pizzaMap);
 		double discount = totalOrderCostCalc.calculateOrderDiscount(pizzaMap, card);
 		Order order = new Order(customer, Status.ORDERED, totalSumm, discount,pizzaMap);
 		

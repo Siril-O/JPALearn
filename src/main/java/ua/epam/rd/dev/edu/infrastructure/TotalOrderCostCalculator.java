@@ -1,4 +1,4 @@
-package ua.epam.rd.dev.domain.infrastructure;
+package ua.epam.rd.dev.edu.infrastructure;
 
 import java.util.Map;
 
@@ -10,7 +10,7 @@ public interface TotalOrderCostCalculator {
 	public double calculateOrderDiscount(Map<Pizza, Integer> pizzas,
 			AccumulativeCard card);
 
-	public double calculateToatalOrderPriceWithoutCardDiscount(
+	public double calculateTotalOrderPriceWithoutCardDiscount(
 			Map<Pizza, Integer> pizzas);
 
 }

@@ -22,7 +22,6 @@ public class JPAPizzaRepositoryIT extends RepositoryTestsTemplate {
 		pizza.setType(PizzaType.Meat);
 
 		Long id = pizzaRepository.save(pizza);
-
 		assertNotNull(id);
 	}
 }

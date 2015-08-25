@@ -1,4 +1,4 @@
-package ua.epam.rd.dev.domain.infrastructure;
+package ua.epam.rd.dev.edu.infrastructure;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -18,19 +18,15 @@ public class JPATotalOrderCostCalculator implements TotalOrderCostCalculator{
 	private static final double PERCENT_OF_CARD_TOTAL_SUMM_FOR_DISCOUNT = 0.1;
 
 	/*
-	 * Order consist of from 1 t o10 pizzas Discount 30% on the most expensive
+	 * Order consist of from 1 to 10 pizzas 
 	 * pizza if amount of pizzas more than 4 Negative Test
 	 */
 
-	/*
-	 * test lower 4 test quantity biger 4 test one most expensive Pizza test two
-	 * most Expensive Pizza
-	 */
 	@Override
 	public double calculateOrderDiscount(Map<Pizza, Integer> pizzas,
 			AccumulativeCard card) {
 
-		double totalSummWithoutDiscount = calculateToatalOrderPriceWithoutCardDiscount(pizzas);
+		double totalSummWithoutDiscount = calculateTotalOrderPriceWithoutCardDiscount(pizzas);
 		double discount = calculateAccumulativeCartDiscount(card);
 		if (Double.compare(discount, totalSummWithoutDiscount
 				* MAX_DISCOUNT_VALUE) == 1) {
@@ -42,7 +38,7 @@ public class JPATotalOrderCostCalculator implements TotalOrderCostCalculator{
 	}
 
 	@Override
-	public double calculateToatalOrderPriceWithoutCardDiscount(
+	public double calculateTotalOrderPriceWithoutCardDiscount(
 			Map<Pizza, Integer> pizzas) {
 		int pizzaCount = 0;
 		double totalPrice = 0;
