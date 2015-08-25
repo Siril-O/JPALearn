@@ -31,4 +31,9 @@ public class JPAOrderService implements OrderService {
 		return orderRepository.findById(id);
 	}
 
+	@Override
+	public List<Order> findOrdersByCustomerId(Long customerId) {
+		return orderRepository.findOrdersByCustomerId(customerId);
+	}
+
 }

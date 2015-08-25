@@ -37,4 +37,9 @@ public class JPACustomerService implements CustomerService {
 		return customerRepository.getByEmailAndPassword(email, password);
 	}
 
+	@Override
+	public Customer getByEmail(String email) {
+		return customerRepository.getByEmail(email);
+	}
+
 }

@@ -14,4 +14,7 @@ public interface CustomerService {
 	public Customer findByid(Long id);
 	
 	public Customer getByEmailAndPassword(String email, String password);
+	
+	public Customer getByEmail(String email);
+
 }

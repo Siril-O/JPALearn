@@ -16,7 +16,9 @@ import javax.persistence.OneToOne;
 				@NamedQuery(name="Customer.getAllCustomers",
 							query="SELECT c FROM Customer c"),
 			    @NamedQuery(name="Customer.getByEmailAndPassword",
-			   				query="SELECT c FROM Customer c WHERE c.email=:email AND c.password=:password")})
+			   				query="SELECT c FROM Customer c WHERE c.email=:email AND c.password=:password"),
+			    @NamedQuery(name="Customer.getByEmail",
+			   				query="SELECT c FROM Customer c WHERE c.email=:email")})
 
 @Entity
 public class Customer {

@@ -21,7 +21,8 @@ import javax.persistence.Table;
 
 import org.springframework.transaction.annotation.Transactional;
 
-@NamedQueries({ @NamedQuery(name = "Order.findAllOrders", query = "SELECT o FROM Order o") })
+@NamedQueries({ @NamedQuery(name = "Order.findAllOrders", query = "SELECT o FROM Order o"),
+				@NamedQuery(name = "Order.findOrdersByCustomerId", query = "SELECT o FROM Order o WHERE o.customer.id=:customer")})
 @Table(name = "pizza_order")
 @Entity
 public class Order {
@@ -37,6 +38,10 @@ public class Order {
 	@Enumerated(EnumType.STRING)
 	private Status status;
 
+	@Column(name="total")
+	private Double totalSumm;
+	private Double discount;
+
 	@ElementCollection
 	@CollectionTable(name = "order_item", joinColumns = { @JoinColumn(name = "order_id") })
 	@MapKeyJoinColumn(name = "pizza_id")
@@ -47,19 +52,24 @@ public class Order {
 		super();
 	}
 
-	public Order(Long id, Customer customer, Status status,
-			Map<Pizza, Integer> pizzas) {
+	public Order(Customer customer, Status status, Double totalSumm,
+			Double discount, Map<Pizza, Integer> pizzas) {
+		super();
+		this.customer = customer;
+		this.status = status;
+		this.totalSumm = totalSumm;
+		this.discount = discount;
+		this.pizzas = pizzas;
+	}
+
+	public Order(Long id, Customer customer, Status status, Double totalSumm,
+			Double discount, Map<Pizza, Integer> pizzas) {
 		super();
 		this.id = id;
 		this.customer = customer;
 		this.status = status;
-		this.pizzas = pizzas;
-	}
-
-	public Order(Customer customer, Status status, Map<Pizza, Integer> pizzas) {
-		super();
-		this.customer = customer;
-		this.status = status;
+		this.totalSumm = totalSumm;
+		this.discount = discount;
 		this.pizzas = pizzas;
 	}
 
@@ -124,6 +134,36 @@ public class Order {
 		this.status = status;
 	}
 
+	/**
+	 * @return the discount
+	 */
+	public Double getDiscount() {
+		return discount;
+	}
+
+	/**
+	 * @param discount
+	 *            the discount to set
+	 */
+	public void setDiscount(Double discount) {
+		this.discount = discount;
+	}
+
+	/**
+	 * @return the totalSumm
+	 */
+	public Double getTotalSumm() {
+		return totalSumm;
+	}
+
+	/**
+	 * @param totalSumm
+	 *            the totalSumm to set
+	 */
+	public void setTotalSumm(Double totalSumm) {
+		this.totalSumm = totalSumm;
+	}
+
 	/*
 	 * (non-Javadoc)
 	 * 
@@ -132,7 +172,8 @@ public class Order {
 	@Override
 	public String toString() {
 		return "Order [id=" + id + ", customer=" + customer + ", status="
-				+ status + "]";
+				+ status + ", totalSumm=" + totalSumm + ", discount="
+				+ discount + ", pizzas=" + pizzas + "]";
 	}
 
 }

@@ -13,6 +13,8 @@
 <body>
 <div class="container">
 		<h1>Pizzas to Order</h1>
+		Hello: ${customer.name} You Are ${customer.role}
+					<a class="btn btn-primary"href="./menu/">Menu</a>
 		<table class="table table-hover">
 			<tr>
 				<td>Id</td>
@@ -28,14 +30,15 @@
 					<td><c:out value="${entry.key.price}" /></td>
 					<td><c:out value="${entry.key.type}" /></td>
 					<td><c:out value="${entry.value}" /></td>
+					<td><form action="./remove" method="post">
+					<input type="hidden" name="pizzaId" value="${entry.key.id}">
+					<input class="btn btn-primary" type="submit" value="Remove from Cart" /></form></td>
 				</tr>
 			</c:forEach>
 		</table>
 		<form action="../cart/placeOrder" method="post">
 		<fieldset>
   <legend>Customer info</legend>
-		Name<input type="text" name="name" class="form-control">
-		Address<input type="text" name="address" class="form-control">
 		</fieldset>
 		<input class="btn btn-primary" type="submit" value="Submit Order">
 		</form>

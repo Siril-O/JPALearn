@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
 
 @Entity
 public class AccumulativeCard {
@@ -14,8 +13,8 @@ public class AccumulativeCard {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@OneToOne(mappedBy = "accumulativeCard")
-	private Customer customer;
+//	@OneToOne(mappedBy = "accumulativeCard")
+//	private Customer customer;
 
 	@Column(name = "summ")
 	private Double totalSumm;
@@ -24,6 +23,7 @@ public class AccumulativeCard {
 
 	public AccumulativeCard() {
 		super();
+		totalSumm = 0d;
 	}
 
 	public AccumulativeCard(Double totalSumm) {
@@ -31,11 +31,11 @@ public class AccumulativeCard {
 		this.totalSumm = totalSumm;
 	}
 
-	public AccumulativeCard(Customer customer, Double totalSumm) {
-		super();
-		this.customer = customer;
-		this.totalSumm = totalSumm;
-	}
+//	public AccumulativeCard(Customer customer, Double totalSumm) {
+//		super();
+//		this.customer = customer;
+//		this.totalSumm = totalSumm;
+//	}
 
 	/**
 	 * @return the id
@@ -50,11 +50,6 @@ public class AccumulativeCard {
 	 */
 	public void setId(Long id) {
 		this.id = id;
-	}
-
-	@Override
-	public String toString() {
-		return "AccumulativeCard [id=" + id + "]";
 	}
 
 	/**
@@ -72,19 +67,27 @@ public class AccumulativeCard {
 		this.totalSumm = totalSumm;
 	}
 
-/*	*//**
-	 * @return the customer
-	 *//*
-	public Customer getCustomer() {
-		return customer;
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "AccumulativeCard [id=" + id + ", totalSumm=" + totalSumm + "]";
 	}
 
-	*//**
+	/*	*//**
+	 * @return the customer
+	 */
+	/*
+	 * public Customer getCustomer() { return customer; }
+	 *//**
 	 * @param customer
 	 *            the customer to set
-	 *//*
-	public void setCustomer(Customer customer) {
-		this.customer = customer;
-	}*/
+	 */
+	/*
+	 * public void setCustomer(Customer customer) { this.customer = customer; }
+	 */
 
 }

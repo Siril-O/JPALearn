@@ -35,4 +35,11 @@ public class JPAOrderRepository implements OrderRepository {
 		return em.find(Order.class, id);
 	}
 
+	@Override
+	public List<Order> findOrdersByCustomerId(Long customerId) {
+		TypedQuery<Order> query = em.createNamedQuery("Order.findOrdersByCustomerId",
+				Order.class);
+		return query.setParameter("customer", customerId).getResultList();
+	}
+
 }

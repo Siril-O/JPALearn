@@ -13,4 +13,6 @@ public interface CustomerRepository {
 	public List<Customer> getAllCustomers();
 	
 	public Customer getByEmailAndPassword(String email, String password);
+	
+	public Customer getByEmail(String email);
 }

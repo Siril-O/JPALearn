@@ -12,8 +12,9 @@
 <body>
 	<div class="container">
 		<h1>Pizzas List</h1>
-		Hello: ${userName} You Are ${roles}
-		<a class="btn btn-primary" href="../cart/">Go to Cart</a>
+		Hello: ${customer.name} You Are ${customer.role}
+		<a class="btn btn-primary" href="/epamJPATest/jsp/cart/account/">Account</a>
+		<a class="btn btn-primary" href="/epamJPATest/jsp/cart/">Go to Cart</a>
 		<table class="table table-hover">
 			<tr>
 				<td>Id</td>
@@ -28,8 +29,8 @@
 					<td><c:out value="${pizza.name}" /></td>
 					<td><c:out value="${pizza.price}" /></td>
 					<td><c:out value="${pizza.type}" /></td>
-					<td><form method="post" action="../pizza/addToCart">
-							<input  type="text" id="quantity" name="quantity" />
+					<td><form method="post" action="/epamJPATest/jsp/cart/addToCart">
+							<input value="1" type="text" id="quantity" name="quantity" />
 							<input class="btn btn-primary" type="submit" value="Add Pizza to Cart" /> <input
 								type="hidden" name="pizzaId" value="${pizza.id}">
 						</form></td>

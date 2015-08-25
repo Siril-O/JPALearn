@@ -41,4 +41,11 @@ public class JPACustomerRepository implements CustomerRepository {
 				.setParameter("password", password).getSingleResult();
 	}
 
+	@Override
+	public Customer getByEmail(String email) {
+		TypedQuery<Customer> query = em.createNamedQuery(
+				"Customer.getByEmail", Customer.class);
+		return query.setParameter("email", email).getSingleResult();
+	}
+
 }

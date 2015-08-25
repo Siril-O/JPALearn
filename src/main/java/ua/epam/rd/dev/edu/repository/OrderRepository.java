@@ -11,4 +11,6 @@ public interface OrderRepository {
 	public List<Order> findAllOrders();
 	
 	public Order findById(Long id);
+	
+	public List<Order> findOrdersByCustomerId(Long customerId);
 }

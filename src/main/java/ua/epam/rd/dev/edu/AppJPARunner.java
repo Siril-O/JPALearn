@@ -72,9 +72,9 @@ public class AppJPARunner {
 
 		}
 
-		customerService.save(new Customer("Kiril Kovalchuk", new Address(
-				"Kyiv Hnata Uri 16 app. 20"), "123", "megajeday@gmail.com",
-				Role.ROLE_ADMIN));
+		customerService.save(new Customer("John Dogget", new Address(
+				"Kyiv Mellnikova street 34 app. 132"), "123", "john@gmail.com",
+				Role.ROLE_USER));
 
 		// System.out.println(pizzaService.getAllPizzas());
 		// System.out.println(customerService.getAllCustomers());
