@@ -28,7 +28,7 @@
 		<intercept-url pattern="/**" access="isFullyAuthenticated()" />
 		<form-login login-page="/jsp/login" login-processing-url="/login"
 			username-parameter="username" password-parameter="password"
-			authentication-failure-url="/jsp/login?error" />
+			authentication-failure-url="/jsp/login?error" authentication-success-handler-ref="mySuccessHandler" />
 		<logout />
 		<csrf disabled="true" />
 	</http>
@@ -38,6 +38,7 @@
 		name="bob" password="123" authorities="ROLE_USER" /> </user-service> </authentication-provider> 
 		</authentication-manager> -->
 
+<beans:bean id="mySuccessHandler" class="ua.epam.rd.dev.edu.web.MySuccessHandler"></beans:bean>
 	<beans:bean id="jPAAuthenticationProvider" name="jPAAuthenticationProvider"
 		class="ua.epam.rd.dev.edu.web.JPAAuthenticationProvider"></beans:bean>
 	<authentication-manager>

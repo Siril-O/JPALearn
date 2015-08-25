@@ -11,15 +11,16 @@
 </head>
 <body>
 	<div class="container">
-		<h1>Pizzas List</h1>
+		<h1>Pizzas</h1>
 		<c:url var="logoutUrl" value="/logout" />
 		<form action="${logoutUrl}" method="post">
-		
-		${userName} ${roles}
-		
-			<input class="btn btn-primary" type="submit" value="LogOut" /> <input
+				Hello: ${customer.name} You Are ${customer.role}
+		<input class="btn btn-primary" type="submit" value="LogOut" /><input
 				type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+				<a class="btn btn-primary" href="/epamJPATest/jsp/pizza/orders">Orders</a>
 		</form>
+		
+		<h3>All Pizzas</h3>
 		<table class="table table-hover">
 			<tr>
 				<td>Id</td>
@@ -36,17 +37,17 @@
 					<td><c:out value="${pizza.price}" /></td>
 					<td><c:out value="${pizza.type}" /></td>
 					<td>
-						<form action="../pizza/editpizza">
+						<form action="/epamJPATest/jsp/pizza/editpizza">
 							<input type="submit" value="Edit" class="btn btn-primary" /> <input
 								type="hidden" name="pizzaId" value="${pizza.id}">
 						</form>
 					</td>
 					<td><a class="btn btn-primary"
-						href="../pizza/removepizza?pizzaId=${pizza.id}">Remove</a></td>
+						href="/epamJPATest/jsp/pizza/removepizza?pizzaId=${pizza.id}">Remove</a></td>
 				</tr>
 			</c:forEach>
 		</table>
-		<a class="btn btn-primary" href="../pizza/addpizza">Add Pizza</a>
+		<a class="btn btn-primary" href="/epamJPATest/jsp/pizza/addpizza">Add Pizza</a>
 
 	</div>
 

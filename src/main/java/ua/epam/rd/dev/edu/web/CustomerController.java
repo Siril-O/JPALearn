@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ua.epam.rd.dev.edu.service.CustomerService;
 
 @Controller
-@RequestMapping(value="customer")
 public class CustomerController {
 
 	@Autowired
@@ -16,5 +15,10 @@ public class CustomerController {
 	@RequestMapping(value = "/register")
 	public String viewRegistration(){
 		return "register";
+	}
+	
+	@RequestMapping(value="/login")
+	public String viewLoginPage(){
+		return "login";
 	}
 }

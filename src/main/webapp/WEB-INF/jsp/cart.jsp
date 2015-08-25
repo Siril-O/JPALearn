@@ -14,6 +14,7 @@
 <div class="container">
 		<h1>Pizzas to Order</h1>
 		Hello: ${customer.name} You Are ${customer.role}
+				<a class="btn btn-primary" href="/epamJPATest/jsp/cart/account/">Account</a>
 					<a class="btn btn-primary"href="./menu/">Menu</a>
 		<table class="table table-hover">
 			<tr>
